@@ -1,0 +1,43 @@
+class Company:
+    def __init__(self, name, cnpj):
+        self.name = name
+        self.cnpj = cnpj
+
+    def show_info(self):
+        print(f'Name: {self.name}')
+        print(f'CNPJ: {self.cnpj}')
+        print(15 * '=-')
+
+
+class Commercial(Company):
+    def __init__(self, name, cnpj, nature):
+        super().__init__(name, cnpj)
+        self.nature = nature
+
+    def show_info(self):
+        print(f'Name: {self.name}')
+        print(f'CNPJ: {self.cnpj}')
+        print(f'Nature: {self.nature}')
+        print(15 * '=-')
+
+
+class Industrial(Company):
+    def __init__(self, name, cnpj, sector):
+        super().__init__(name, cnpj)
+        self.sector = sector
+
+    def show_info(self):
+        print(f'Name: {self.name}')
+        print(f'CNPJ: {self.cnpj}')
+        print(f'Sector: {self.sector}')
+        print(15 * '=-')
+
+
+cc = Commercial('Texas Company', '02.915.495/0001-04', 'Retailer')
+cc2 = Commercial('Bobs Innovation', '03.740.336/0001-89', 'Wholesaler')
+ci = Commercial('Electric Company', '02.915.485/0001-50', 'Cars')
+ci2 = Commercial('Fun Bus', '00.857.495/0001-88', 'Buses')
+cc.show_info()
+cc2.show_info()
+ci.show_info()
+ci2.show_info()
