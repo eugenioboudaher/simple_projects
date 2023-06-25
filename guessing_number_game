@@ -1,0 +1,28 @@
+from random import randint
+
+
+def show_intro():
+    print(15 * '=-')
+    print(f"{'GUESSING NUMBER':^30}")
+    print(15 * '=-')
+
+
+def play_game():
+    pc_number = randint(1, 100)
+    attempts = 0
+    while True:
+        show_intro()
+        user_number = int(input('Guess the number: '))
+        attempts += 1
+        if user_number == pc_number:
+            print(f'You won, the number was {pc_number} with {attempts} attempts')
+            break
+        if user_number > pc_number:
+            print('Too high, try again')
+        if user_number < pc_number:
+            print('Too low, try again')
+
+
+
+play_game()
+
