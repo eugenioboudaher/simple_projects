@@ -1,0 +1,45 @@
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+
+    def calculate_bonus1(self):
+        self.salary = self.salary * 1.15
+
+
+    def show_info(self):
+        print(15 * '=-')
+        print("Manager Information")
+        print("Name:", self.name)
+        print(f"Salary: R$ {self.salary:.2f}")
+        print("Department:", self.department)
+
+
+class Programmer(Employee):
+    def __init__(self, name, salary, language):
+        super().__init__(name, salary)
+        self.language = language
+
+    def calculate_bonus2(self):
+        self.salary = self.salary * 1.05
+
+    def show_info(self):
+        print(15 * '=-')
+        print("Programmer Information")
+        print("Name:", self.name)
+        print(f"Salary: R$ {self.salary:.2f}")
+        print("Language:", self.language)
+
+
+m1 = Manager('John', 3000, 'Sales')
+m1.calculate_bonus1()
+m1.show_info()
+m1 = Programmer('Eugenio', 4500, 'Python')
+m1.calculate_bonus2()
+m1.show_info()
