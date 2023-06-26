@@ -1,0 +1,34 @@
+class Task:
+    def __init__(self, title, description, deadline, status):
+        self.title = title
+        self.description = description
+        self.status = status
+        self.deadline = deadline
+
+    def status_change(self, status_changes):
+        self.status = status_changes
+
+
+    def deadline_change(self, deadline_changes):
+        self.deadline = deadline_changes
+
+
+    def show_task_info(self):
+        print(15 * '=-')
+        print(f'{"TASK INFO":^30}')
+        print(15 * '=-')
+        print(f'Name: {self.title}')
+        print(f'Description: {self.description}')
+        print(f'Deadline: {self.deadline}')
+        print(f'Status: {self.status}')
+
+
+t01 = Task('deliver pack 001', 'package delivery', 'Monday', 'No')
+t02 = Task('deliver pack 002', 'package delivery', 'Tuesday', 'No')
+t03 = Task('deliver pack 003', 'package delivery', 'Friday', 'No')
+t01.status_change('yes')
+t01.deadline_change('Tuesday')
+t01.show_task_info()
+
+
+
