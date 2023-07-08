@@ -1,0 +1,30 @@
+import random
+
+
+answer = ''
+while answer != 'N':
+    print('=-' * 15)
+    print(f"{'ROCK PAPER AND SCISSORS':^30}")
+    print('=-' * 15)
+    user = input('What is your option: ').strip().upper()
+    if user.isnumeric() and user.isdigit() or user not in 'ROCK PAPER AND SCISSORS':
+        print('Invalid Entry')
+        continue
+    pc = random.choice(['ROCK', 'PAPER', 'SCISSORS'])
+
+    if user == pc:
+        print('Draw')
+        print(f'user played {user} and pc {pc}')
+        answer = str(input('Continue (Y/N): ')).upper()
+
+    elif (user == 'ROCK' and pc == 'SCISSOR') or \
+         (user == 'SCISSORS' and pc == 'PAPER') or \
+         (user == 'PAPER' and pc == 'ROCK'):
+        print('You Won')
+        print(f'user played {user} and pc {pc}')
+        answer = str(input('Continue (Y/N): ')).upper()
+
+    else:
+        print('You Lose')
+        print(f'user played {user} and pc {pc}')
+        answer = str(input('Continue (Y/N): ')).upper()
