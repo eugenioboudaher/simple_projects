@@ -1,0 +1,71 @@
+class User:
+    def __init__(self, user_name):
+        self.user_name = user_name
+        self.friends = []
+        self.posts = []
+
+    def add_friend(self, friend):
+        self.friends.append(friend)
+
+    def to_post(self, content):
+        post = Post(content, self)
+        self.posts.append(post)
+
+
+class Post:
+    def __init__(self, content, author):
+        self.content = content
+        self.author = author
+        self.comments = []
+
+    def comment(self, comment):
+        self.comments.append(comment)
+
+
+class AbouDaherNetwork:
+    def __init__(self):
+        self.users = []
+
+    def add_user(self, user):
+        self.users.append(user)
+
+  ##################################################################################################
+
+  from rascunhos_m import User
+from rascunhos_m import Post
+from rascunhos_m import AbouDaherNetwork
+
+network = AbouDaherNetwork()
+
+
+def show_info(user):
+    print(f'Username: {user.user_name}')
+    print(f'Friends: {", ".join([friend.user_name for friend in user.friends])}')
+    print('Posts: ')
+    for post in user.posts:
+        print(f' - {post.content}')
+        for comment in post.comments:
+            print(f' -{comment}')
+    print('---------------------------------------------------')
+    print('---------------------------------------------------')
+
+
+user1 = User("Alice")
+user2 = User("Bob")
+user3 = User("Charlie")
+
+
+user1.add_friend(user2)
+user1.add_friend(user3)
+user2.add_friend(user3)
+user3.add_friend(user1)
+
+user1.to_post('Obrigado Deus por tudo')
+user1.posts[0].comment("Amem")
+
+
+show_info(user1)
+
+  
+
+
